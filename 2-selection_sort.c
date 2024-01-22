@@ -8,9 +8,9 @@
 
 void swap(int *a, int *b)
 {
-	int hold;
-
-	hold = *a;
+	int store;
+/*This is jsut for the swapping of file*/
+	store = *a;
 	*a = *b;
 	*b = hold;
 }
