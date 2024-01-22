@@ -26,7 +26,7 @@ void swap_list(listint_t **head, listint_t **node_a, listint_t **node_b)
 }
 /**
  * insertion_sort_list - Inserts a node a node
- * 	using the inserting sort of algorithm
+ *	using the inserting sort of algorithm
  * @head: The head of the list that points to NULL
  */
 
