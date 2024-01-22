@@ -39,7 +39,7 @@ void insertion_sort_list(listint_t **head)
 	tmp_store = (*head)->next;
 	while (tmp_store != NULL)
 	{
-		for (ptr = tmp_store; point_to != *head && (point_to->n < point_to->prev->n);)
+		for (point_to = tmp_store; point_to != *head && (point_to->n < point_to->prev->n);)
 		{
 			swap_list(head, &(point_to->prev), &point_to);
 			print_list(*head);
