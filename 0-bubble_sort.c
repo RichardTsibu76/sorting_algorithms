@@ -1,3 +1,5 @@
+#include "sort.h"
+
 /**
  * swap - This is the swap function
  * @a: First integer to be swapped
@@ -15,11 +17,9 @@ void swap(int *a, int *b)
 }
 
 /**
- * bubble_sort - A function to sort elements using the bubble sort method
- *
- * @array: Array of elements
- *
- * @size: Size of the array
+ * bubble_sort - Bubble sort algorithm for the certain elements
+ * @array: Array of elements to be sorted
+ * @size: Array size
  */
 
 void bubble_sort(int *array, size_t size)
