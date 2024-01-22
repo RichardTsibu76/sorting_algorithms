@@ -8,34 +8,33 @@
 
 void swap(int *a, int *b)
 {
-	int hold;
+	int keep;
 
-	hold = *a;
+	keep = *a;
 	*a = *b;
-	*b = hold;
+	*b = keep;
 }
 
 /**
  * bubble_sort - This function sorts an array of integers
  *     in ascending order using Bubble sort algorithm
- * @array: Array of elements
- *
- * @size: Size of the array
+ * @array: Array of elements of the algorithm
+ * @size: Array Size of the elements
  */
 
 void bubble_sort(int *array, size_t size)
 {
-	size_t i, j;
+	size_t num, j;
 
 	if (array == NULL)
 		return;
-	/* Loop to control the number of passes */
-	for (i = 1; i <= size; i++)
+	/* Control flow of the passes */
+	for (num = 1; num <= size; num++)
 	{
-		/* Loop to control the number of comparisons per pass */
+		/* This loop is to compare the number of pasess */
 		for (j = 0; j < size - 1; j++)
 		{
-			/* Swap if current element > next */
+			/* Leverages the swapping if currrent element> next */
 			if (array[j] > array[j + 1])
 			{
 				swap(&array[j], &array[j + 1]);
