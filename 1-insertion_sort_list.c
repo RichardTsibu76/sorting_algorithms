@@ -32,18 +32,18 @@ void swap_list(listint_t **head, listint_t **node_a, listint_t **node_b)
 
 void insertion_sort_list(listint_t **head)
 {
-	listint_t *tmp, *ptr;
+	listint_t *tmp_store, *ptr;
 
 	if (head == NULL || *head == NULL)
 		return;
-	tmp = (*head)->next;
-	while (tmp != NULL)
+	tmp_store = (*head)->next;
+	while (tmp_store != NULL)
 	{
-		for (ptr = tmp; ptr != *head && (ptr->n < ptr->prev->n);)
+		for (ptr = tmp_store; ptr != *head && (ptr->n < ptr->prev->n);)
 		{
 			swap_list(head, &(ptr->prev), &ptr);
 			print_list(*head);
 		}
-		tmp = tmp->next;
+		tmp_store = tmp_store->next;
 	}
 }
