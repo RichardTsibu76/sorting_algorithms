@@ -1,10 +1,14 @@
-#include "sort.h"
 /**
- * swap_list - Swaps element in the doubly linked list
- * @head: The Head pointer
- * @node_a:The first node
- * @node_b: The second node
+ * swap_list - A function to swap elements in a doubly linked list
+ *
+ * @head: Head of the list that points to NULL
+ *
+ * @node_a: First node for comparison
+ *
+ * @node_b: Second node for comparison
  */
+
+#include "sort.h"
 
 void swap_list(listint_t **head, listint_t **node_a, listint_t **node_b)
 {
@@ -24,25 +28,25 @@ void swap_list(listint_t **head, listint_t **node_a, listint_t **node_b)
 		b->prev->next = b;
 }
 /**
- * insertion_sort_list - Inserts elements into a list
- *	using the selection sort algorithm
- * @head: Points to null
+ * insertion_sort_list - A function to insert elements into a list
+ *
+ * @head: The head of the list that points to NULL
  */
 
 void insertion_sort_list(listint_t **head)
 {
-	listint_t *temp_store, *ptr;
+	listint_t *tmp, *ptr;
 
 	if (head == NULL || *head == NULL)
 		return;
-	tmp_store = (*head)->next;
-	while (tmp_store != NULL)
+	tmp = (*head)->next;
+	while (tmp != NULL)
 	{
-		for (ptr = tmp_store; ptr != *head && (ptr->n < ptr->prev->n);)
+		for (ptr = tmp; ptr != *head && (ptr->n < ptr->prev->n);)
 		{
 			swap_list(head, &(ptr->prev), &ptr);
 			print_list(*head);
 		}
-		tmp_store = tmp_store->next;
+		tmp = tmp->next;
 	}
 }
