@@ -1,47 +1,40 @@
-/**
- * swap - A function to swap elements
- *
- * @a: First element
- *
- * @b: Second element
- */
-
 #include "sort.h"
 
+/**
+ * swap - Swaps Elements
+ * @a: Element one of the elements
+ * @b:This is the second elements
+*/
 void swap(int *a, int *b)
 {
 	int hold;
 
-	hold = *a;
+	keep = *a;
 	*a = *b;
-	*b = hold;
+	*b = keep;
 }
 /**
- * split - A function to split the array
- *
- * @array: The array
- *
- * @l: low of the array
- *
- * @h: High of the array
- *
- * @size: Size of the array
- *
- * Return: Integer
+ * split - Quick splits of the array
+ * @array: The array at concern
+ * @l: Lower bound of the array
+ * @h: Higher bound of the array
+ * @size: Array size at consideration
+ * Return: This returns an integer
  */
 int split(int *array, int l, int h, size_t size)
 {
-	int i, pivot = array[h];
+	int cal_int, pvt = array[h];
 	int firsthigh;
-
+/*let the pvt stand for the pivot*/
+/*let the cal_int stand for interger calculation*/
 	firsthigh = l;
-	for (i = l; i < h; i++)
+	for (cal_int = l; cal_int < h; cal_int++)
 	{
-		if (array[i] <= pivot)
+		if (array[cal_int] <= pvt)
 		{
-			if (firsthigh != i)
+			if (firsthigh != cal_int)
 			{
-				swap(&array[i], &array[firsthigh]);
+				swap(&array[cal_int], &array[firsthigh]);
 				print_array(array, size);
 			}
 			firsthigh++;
@@ -56,34 +49,28 @@ int split(int *array, int l, int h, size_t size)
 }
 
 /**
- * tmp_sort - A function to sort elements
- *
- * @array: Array of element
- *
+ * tmp_sort - This fucntion sorts elements
+ * @array: Array of elements to be sorted
  * @l: Low of the array
- *
- * @h: High of the array
- *
+ * @h: Higher of the array
  * @size: Size of the array
  */
 
 void tmp_sort(int *array, int l, int h, size_t size)
 {
-	int middle;
+	int mid_part;
 
 	if (l < h)
 	{
-		middle = split(array, l, h, size);
-		tmp_sort(array, l, middle - 1, size);
-		tmp_sort(array, middle + 1, h, size);
+		mid_part = split(array, l, h, size);
+		tmp_sort(array, l, mid_part - 1, size);
+		tmp_sort(array, mid_part + 1, h, size);
 	}
 }
 /**
- * quick_sort - A function to sort elements using the quicksort method
- *
- * @array: The array of elements
- *
- * @size: Size of the array
+ * quick_sort - Sorts elements using quick sort
+ * @array: The array of element
+ * @size: Array size
  */
 void quick_sort(int *array, size_t size)
 {
