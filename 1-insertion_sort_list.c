@@ -1,14 +1,11 @@
-/**
- * swap_list - A function to swap elements in a doubly linked list
- *
- * @head: Head of the list that points to NULL
- *
- * @node_a: First node for comparison
- *
- * @node_b: Second node for comparison
- */
-
 #include "sort.h"
+
+/**
+ * swap_list - Swaps elements
+ * @head: Head pointer
+ * @node_a: First node
+ * @node_b: Second node
+ */
 
 void swap_list(listint_t **head, listint_t **node_a, listint_t **node_b)
 {
@@ -28,8 +25,8 @@ void swap_list(listint_t **head, listint_t **node_a, listint_t **node_b)
 		b->prev->next = b;
 }
 /**
- * insertion_sort_list - A function to insert elements into a list
- *
+ * insertion_sort_list - Inserts a node a node
+ * 	using the inserting sort of algorithm
  * @head: The head of the list that points to NULL
  */
 
