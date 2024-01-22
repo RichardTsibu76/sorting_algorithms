@@ -28,7 +28,7 @@ void bubble_sort(int *array, size_t size)
 
 	if (array == NULL)
 		return;
-	/* Loop to control the number of passes */
+	/* Loop to control the number of passes of the bu */
 	for (num = 1; num <= size; num++)
 	{
 		/* Loop to control the number of comparisons per pass */
@@ -37,6 +37,7 @@ void bubble_sort(int *array, size_t size)
 			/* Swap if current element > next */
 			if (array[k] > array[k + 1])
 			{
+				/*swapping of elements*/
 				swap(&array[k], &array[k + 1]);
 				print_array(array, size);
 			}
