@@ -24,7 +24,7 @@ void swap(int *a, int *b)
 
 void bubble_sort(int *array, size_t size)
 {
-	size_t num, j;
+	size_t num, K;
 
 	if (array == NULL)
 		return;
@@ -32,12 +32,12 @@ void bubble_sort(int *array, size_t size)
 	for (num = 1; num <= size; num++)
 	{
 		/* This loop is to compare the number of pasess */
-		for (j = 0; j < size - 1; j++)
+		for (K = 0; K < size - 1; K++)
 		{
 			/* Leverages the swapping if currrent element> next */
-			if (array[j] > array[j + 1])
+			if (array[K] > array[K + 1])
 			{
-				swap(&array[j], &array[j + 1]);
+				swap(&array[K], &array[K + 1]);
 				print_array(array, size);
 			}
 		}
