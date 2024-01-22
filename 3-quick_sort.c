@@ -7,11 +7,11 @@
 */
 void swap(int *a, int *b)
 {
-	int keep;
+	int keep_swap
 
-	keep = *a;
+	keep_swap = *a;
 	*a = *b;
-	*b = keep;
+	*b = keep_swap;
 }
 /**
  * split - Quick splits of the array
