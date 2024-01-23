@@ -1,10 +1,10 @@
 #include "sort.h"
 
 /**
- * swap_list - swaps two nodes in a list
- * @head: a pointer to the head of the list
- * @node_a: a pointer to the first node to swap
- * @node_b: a pointer to the second node to swap
+ * swap_list -This function swaps two nodes in a list
+ * @head: A pointer
+ * @node_a: This points to the first node
+ * @node_b: Points to the second node
  */
 void swap_list(listint_t **head, listint_t **node_a, listint_t **node_b)
 {
@@ -25,43 +25,43 @@ void swap_list(listint_t **head, listint_t **node_a, listint_t **node_b)
 }
 
 /**
- * cocktail_sort_list - implements the cocktail shaker sort algorithm
- *
- * @head: a pointer to the head node of a list
+ * cocktail_sort_list - This is funtion for the sorting type
+ * @head: A pointer
+ * Return: Does not return
  */
 void cocktail_sort_list(listint_t **head)
 {
-	bool swap_state = false;
-	listint_t *tmp = *head;
+	bool swapped = false;
+	listint_t *tmp_store = *head;
 
 	if (head == NULL || *head == NULL || (*head)->next == NULL)
 		return;
 
 	do {
-		for (; tmp->next;)
+		for (; tmp_store->next;)
 		{
-			if (tmp->n > tmp->next->n)
+			if (tmp_store->n > tmp_store->next->n)
 			{
-				swap_list(head, &tmp, &(tmp->next));
+				swap_list(head, &tmp_store, &(tmp_store->next));
 				print_list(*head);
-				swap_state = true;
+				swapped = true;
 			}
 			else
-				tmp = tmp->next;
+				tmp_store = tmp_store->next;
 		}
-		if (swap_state == false)
-			break;  /* Array in correct order*/
-		swap_state = false;
-		for (; tmp->prev;)
+		if (swapped == false)
+			break;/*This is an array to work correctly in order*/
+		swapped = false;
+		for (; tmp_store->prev;)
 		{
-			if (tmp->n < tmp->prev->n)
+			if (tmp_store->n < tmp_store->prev->n)
 			{
-				swap_list(head, &(tmp->prev), &tmp);
+				swap_list(head, &(tmp_store->prev), &tmp_store);
 				print_list(*head);
-				swap_state = true;
+				swapped = true;
 			}
 			else
-				tmp = tmp->prev;
+				tmp_store = tmp_store->prev;
 		}
-	} while (swap_state);
+	} while(swapped);
 }
