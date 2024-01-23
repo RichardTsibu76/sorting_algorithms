@@ -1,47 +1,71 @@
 #include "sort.h"
 
 /**
- * counting_sort - implements counting sort algorithm to sort
- *	array in ascending order
- * @array: [int] array to be sorted
- * @size:  [int] size of array
- */
-void counting_sort(int *array, size_t size)
-{
-	size_t i, max = array[0], j;
-	int *tmp, *result;
+ *  * find_max - find the maximum value in the array
+ *   * @array: Array
+ *    * @size: size of the array
+ *     *
+ *      * Return: The max value
+ *       */
 
-	if (array == NULL || size < 2)
-		return;
+int find_max(const int *array, size_t size)
+{
+	int max = array[0];
+	size_t i;
 
 	for (i = 1; i < size; i++)
 	{
-		if (array[i] > (int) max)
+		if (array[i] > max)
+		{
 			max = array[i];
+		}
 	}
-	tmp = malloc(sizeof(int) * (max + 1));
-	if (tmp == NULL)
-		return;
-	result = malloc(sizeof(int) * size);
-	if (result == NULL)
+	return (max);
+}
+
+/**
+ *  * counting_sort - Sorts an array of int in ascending order using the
+ *   * Counting sort algorithm
+ *    * @array: Array to be sorted
+ *     * @size: size of the array
+ *      *
+ *       * Return: void
+ *        */
+void counting_sort(int *array, size_t size)
+{
+	int max, i, index, *counting_array;
+	size_t j;
+
+	if (array == 0 || size < 2)
 	{
-		free(tmp);
 		return;
 	}
-	for (i = 0; i <= (size_t) max; i++)
-		tmp[i] = 0;
+
+	max = find_max(array, size);
+	counting_array = (int *)malloc((max + 1) * sizeof(int));
+
+	for (i = 0; i <= max; i++)
+	{
+		counting_array[i] = 0;
+	}
+
 	for (j = 0; j < size; j++)
-		tmp[array[j]] = tmp[array[j]] + 1;
-	for (i = 1; i <= max; i++)
-		tmp[i] = tmp[i] + tmp[i - 1];
-	print_array(tmp, max + 1);
-	for (i = size - 1; (int) i >= 0; i--)
 	{
-		tmp[array[i]] = tmp[array[i]] - 1;
-		result[tmp[array[i]]] = array[i];
+		counting_array[array[j]]++;
 	}
-	for (i = 0; i < size; i++)
-		array[i] = result[i];
-	free(tmp);
-	free(result);
+	print_array(array, size);
+
+	index = 0;
+
+	for (i = 0; i <= max; i++)
+	{
+		while (counting_array[i] > 0)
+		{
+			array[index] = i;
+			index++;
+			counting_array[i]--;
+		}
+	}
+	free(counting_array);
+
 }
