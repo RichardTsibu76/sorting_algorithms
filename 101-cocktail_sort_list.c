@@ -63,5 +63,5 @@ void cocktail_sort_list(listint_t **head)
 			else
 				tmp_store = tmp_store->prev;
 		}
-	} while(swapped);
+	} while (swapped);
 }
