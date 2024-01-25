@@ -12,7 +12,7 @@ void swap(int *a, int *b)
 /*This is jsut for the swapping of file*/
 	store = *a;
 	*a = *b;
-	*b = hold;
+	*b = keep;
 }
 
 /**
