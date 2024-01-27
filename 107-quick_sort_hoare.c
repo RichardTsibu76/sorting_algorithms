@@ -75,7 +75,7 @@ void hoare_sort(int *array, size_t size, int left, int right)
 }
 
 /**
- *quick_sort_hoare - This fuction sorts an array of integers 
+ *quick_sort_hoare - This fuction sorts an array of integers
  *	using the quick sort algorithm.
  *@array: An array of integers.
  *@size: The size of the array.
