@@ -1,26 +1,6 @@
 #ifndef SORT_H
 #define SORT_H
 
-/*This is Comparison macros for bitonic sort*/
-#define UP 0
-#define DOWN 1
-
-/*Comparison direction for bitonic sort*/
-#define UP 0
-#define DOWN 1
-/**
- *enum bool - Enumeration of Boolean values.
- *@false: Equals 0.
- *@true: Equals 1.
- */
-
-typedef enum bool
-{
-	false = 0,
-	true
-} bool;
-
-#include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
 #include <stddef.h>
